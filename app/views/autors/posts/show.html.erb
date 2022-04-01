@@ -1,0 +1,9 @@
+
+<%= render @post %>
+
+<div>
+  <%= link_to "Editar", edit_post_path(@post) %> |
+  <%= link_to "Regresar", posts_path %>
+
+  <%= button_to "Eliminar", @post, method: :delete %>
+</div>

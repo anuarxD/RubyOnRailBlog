@@ -1,0 +1,27 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> Prohibido guardar este post:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :Título %>
+    <%= form.text_field :titulo, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Descripción %>
+    <%= form.text_area :titulo_descripcion, class: 'form-control'  %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'btn btn-primary btn-block' %>
+  </div>
+<% end %>

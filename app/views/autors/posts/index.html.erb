@@ -1,0 +1,51 @@
+<h4 class="d-flex justify-content-between mb-4">
+  <span>Posts</span>
+  <%= link_to "Nuevo Post", new_post_path, class: "btn btn-primary" %>
+</h4>
+<div id="posts">
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripción</th>
+      <th>Publicado</th>
+      <th>Publicado el</th>
+      <th>Autor</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.titulo %></td>
+        <td><%= post.titulo_descripcion %></td>
+        <td><%= post.publicado %></td>
+        <td><%= post.publicado_el %></td>
+        <td><%= post.autor_id %></td>
+        <td><%= link_to "editar",edit_post_path(post),class: "btn btn-warning" %></td>
+        <td><%= button_to "Eliminar",post,class:"btn btn-danger",confirm: "Estas seguro que quieres eliminar el Post?", method: :delete %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class="border-top" style="margin-top: 25px;margin-bottom: 25px;"></div>
+<h4 class="d-flex justify-content-between mb-4">
+  <span>Posts</span>
+  <%= link_to "Nuevo Post", new_post_path, class: "btn btn-primary" %>
+</h4>
+
+  <% @posts.each do |post| %>
+    <%= link_to edit_post_path(post), class:"text-decoration-none" do %>
+      <div class="card">
+        <div class="carf-body">
+          <h5 class="card-title text-dark"><%= post.titulo%></h5>
+          <p class="text-secondary"><%= post.titulo_descripcion%></p>
+        </div>
+      </div>
+      <br>
+    <%end%>
+  <%end %>
